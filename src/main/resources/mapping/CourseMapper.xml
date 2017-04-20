@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ssm.dao.CourseMapper" >
+  <resultMap id="BaseResultMap" type="ssm.model.Course" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="weekDay" property="weekday" jdbcType="INTEGER" />
+    <result column="sectionLength" property="sectionlength" jdbcType="INTEGER" />
+    <result column="sectionStart" property="sectionstart" jdbcType="INTEGER" />
+    <result column="sectionEnd" property="sectionend" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="ssm.model.CourseWithBLOBs" extends="BaseResultMap" >
+    <result column="course" property="course" jdbcType="LONGVARCHAR" />
+    <result column="location" property="location" jdbcType="LONGVARCHAR" />
+    <result column="teacher" property="teacher" jdbcType="LONGVARCHAR" />
+    <result column="weekString" property="weekstring" jdbcType="LONGVARCHAR" />
+    <result column="week" property="week" jdbcType="LONGVARCHAR" />
+    <result column="shareCode" property="sharecode" jdbcType="LONGVARCHAR" />
+    <result column="city" property="city" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, weekDay, sectionLength, sectionStart, sectionEnd
+  </sql>
+  <sql id="Blob_Column_List" >
+    course, location, teacher, weekString, week, shareCode, city
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="ssm.model.CourseExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from course
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="ssm.model.CourseExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from course
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from course
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from course
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="ssm.model.CourseExample" >
+    delete from course
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="ssm.model.CourseWithBLOBs" >
+    insert into course (id, weekDay, sectionLength, 
+      sectionStart, sectionEnd, course, 
+      location, teacher, weekString, 
+      week, shareCode, city
+      )
+    values (#{id,jdbcType=INTEGER}, #{weekday,jdbcType=INTEGER}, #{sectionlength,jdbcType=INTEGER}, 
+      #{sectionstart,jdbcType=INTEGER}, #{sectionend,jdbcType=INTEGER}, #{course,jdbcType=LONGVARCHAR}, 
+      #{location,jdbcType=LONGVARCHAR}, #{teacher,jdbcType=LONGVARCHAR}, #{weekstring,jdbcType=LONGVARCHAR}, 
+      #{week,jdbcType=LONGVARCHAR}, #{sharecode,jdbcType=LONGVARCHAR}, #{city,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="ssm.model.CourseWithBLOBs" >
+    insert into course
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="weekday != null" >
+        weekDay,
+      </if>
+      <if test="sectionlength != null" >
+        sectionLength,
+      </if>
+      <if test="sectionstart != null" >
+        sectionStart,
+      </if>
+      <if test="sectionend != null" >
+        sectionEnd,
+      </if>
+      <if test="course != null" >
+        course,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="teacher != null" >
+        teacher,
+      </if>
+      <if test="weekstring != null" >
+        weekString,
+      </if>
+      <if test="week != null" >
+        week,
+      </if>
+      <if test="sharecode != null" >
+        shareCode,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="weekday != null" >
+        #{weekday,jdbcType=INTEGER},
+      </if>
+      <if test="sectionlength != null" >
+        #{sectionlength,jdbcType=INTEGER},
+      </if>
+      <if test="sectionstart != null" >
+        #{sectionstart,jdbcType=INTEGER},
+      </if>
+      <if test="sectionend != null" >
+        #{sectionend,jdbcType=INTEGER},
+      </if>
+      <if test="course != null" >
+        #{course,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="teacher != null" >
+        #{teacher,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="weekstring != null" >
+        #{weekstring,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="week != null" >
+        #{week,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sharecode != null" >
+        #{sharecode,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="ssm.model.CourseExample" resultType="java.lang.Integer" >
+    select count(*) from course
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update course
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.weekday != null" >
+        weekDay = #{record.weekday,jdbcType=INTEGER},
+      </if>
+      <if test="record.sectionlength != null" >
+        sectionLength = #{record.sectionlength,jdbcType=INTEGER},
+      </if>
+      <if test="record.sectionstart != null" >
+        sectionStart = #{record.sectionstart,jdbcType=INTEGER},
+      </if>
+      <if test="record.sectionend != null" >
+        sectionEnd = #{record.sectionend,jdbcType=INTEGER},
+      </if>
+      <if test="record.course != null" >
+        course = #{record.course,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.location != null" >
+        location = #{record.location,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.teacher != null" >
+        teacher = #{record.teacher,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.weekstring != null" >
+        weekString = #{record.weekstring,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.week != null" >
+        week = #{record.week,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.sharecode != null" >
+        shareCode = #{record.sharecode,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update course
+    set id = #{record.id,jdbcType=INTEGER},
+      weekDay = #{record.weekday,jdbcType=INTEGER},
+      sectionLength = #{record.sectionlength,jdbcType=INTEGER},
+      sectionStart = #{record.sectionstart,jdbcType=INTEGER},
+      sectionEnd = #{record.sectionend,jdbcType=INTEGER},
+      course = #{record.course,jdbcType=LONGVARCHAR},
+      location = #{record.location,jdbcType=LONGVARCHAR},
+      teacher = #{record.teacher,jdbcType=LONGVARCHAR},
+      weekString = #{record.weekstring,jdbcType=LONGVARCHAR},
+      week = #{record.week,jdbcType=LONGVARCHAR},
+      shareCode = #{record.sharecode,jdbcType=LONGVARCHAR},
+      city = #{record.city,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update course
+    set id = #{record.id,jdbcType=INTEGER},
+      weekDay = #{record.weekday,jdbcType=INTEGER},
+      sectionLength = #{record.sectionlength,jdbcType=INTEGER},
+      sectionStart = #{record.sectionstart,jdbcType=INTEGER},
+      sectionEnd = #{record.sectionend,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="ssm.model.CourseWithBLOBs" >
+    update course
+    <set >
+      <if test="weekday != null" >
+        weekDay = #{weekday,jdbcType=INTEGER},
+      </if>
+      <if test="sectionlength != null" >
+        sectionLength = #{sectionlength,jdbcType=INTEGER},
+      </if>
+      <if test="sectionstart != null" >
+        sectionStart = #{sectionstart,jdbcType=INTEGER},
+      </if>
+      <if test="sectionend != null" >
+        sectionEnd = #{sectionend,jdbcType=INTEGER},
+      </if>
+      <if test="course != null" >
+        course = #{course,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="teacher != null" >
+        teacher = #{teacher,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="weekstring != null" >
+        weekString = #{weekstring,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="week != null" >
+        week = #{week,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="sharecode != null" >
+        shareCode = #{sharecode,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="ssm.model.CourseWithBLOBs" >
+    update course
+    set weekDay = #{weekday,jdbcType=INTEGER},
+      sectionLength = #{sectionlength,jdbcType=INTEGER},
+      sectionStart = #{sectionstart,jdbcType=INTEGER},
+      sectionEnd = #{sectionend,jdbcType=INTEGER},
+      course = #{course,jdbcType=LONGVARCHAR},
+      location = #{location,jdbcType=LONGVARCHAR},
+      teacher = #{teacher,jdbcType=LONGVARCHAR},
+      weekString = #{weekstring,jdbcType=LONGVARCHAR},
+      week = #{week,jdbcType=LONGVARCHAR},
+      shareCode = #{sharecode,jdbcType=LONGVARCHAR},
+      city = #{city,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="ssm.model.Course" >
+    update course
+    set weekDay = #{weekday,jdbcType=INTEGER},
+      sectionLength = #{sectionlength,jdbcType=INTEGER},
+      sectionStart = #{sectionstart,jdbcType=INTEGER},
+      sectionEnd = #{sectionend,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,1 @@
+INSERT into `user` (`username`, `nickname`, `password`) VALUES ('caspar','caspar',md5('Caspar1995.'));
