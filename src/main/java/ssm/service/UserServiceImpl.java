@@ -18,8 +18,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public void insertUser(User user) {
-        userMapper.insert(user);
+    public int insertUser(User user) {
+        return userMapper.insert(user);
     }
 
     public void deleteUser(int id) {

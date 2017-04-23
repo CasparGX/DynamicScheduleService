@@ -14,7 +14,6 @@
     <result column="teacher" property="teacher" jdbcType="LONGVARCHAR" />
     <result column="weekString" property="weekstring" jdbcType="LONGVARCHAR" />
     <result column="week" property="week" jdbcType="LONGVARCHAR" />
-    <result column="shareCode" property="sharecode" jdbcType="LONGVARCHAR" />
     <result column="city" property="city" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -79,7 +78,7 @@
     id, weekDay, sectionLength, sectionStart, sectionEnd
   </sql>
   <sql id="Blob_Column_List" >
-    course, location, teacher, weekString, week, shareCode, city
+    course, location, teacher, weekString, week, city
   </sql>
   <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="ssm.model.CourseExample" >
     select
@@ -133,13 +132,11 @@
     insert into course (id, weekDay, sectionLength, 
       sectionStart, sectionEnd, course, 
       location, teacher, weekString, 
-      week, shareCode, city
-      )
+      week, city)
     values (#{id,jdbcType=INTEGER}, #{weekday,jdbcType=INTEGER}, #{sectionlength,jdbcType=INTEGER}, 
       #{sectionstart,jdbcType=INTEGER}, #{sectionend,jdbcType=INTEGER}, #{course,jdbcType=LONGVARCHAR}, 
       #{location,jdbcType=LONGVARCHAR}, #{teacher,jdbcType=LONGVARCHAR}, #{weekstring,jdbcType=LONGVARCHAR}, 
-      #{week,jdbcType=LONGVARCHAR}, #{sharecode,jdbcType=LONGVARCHAR}, #{city,jdbcType=LONGVARCHAR}
-      )
+      #{week,jdbcType=LONGVARCHAR}, #{city,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="ssm.model.CourseWithBLOBs" >
     insert into course
@@ -173,9 +170,6 @@
       </if>
       <if test="week != null" >
         week,
-      </if>
-      <if test="sharecode != null" >
-        shareCode,
       </if>
       <if test="city != null" >
         city,
@@ -211,9 +205,6 @@
       </if>
       <if test="week != null" >
         #{week,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="sharecode != null" >
-        #{sharecode,jdbcType=LONGVARCHAR},
       </if>
       <if test="city != null" >
         #{city,jdbcType=LONGVARCHAR},
@@ -259,9 +250,6 @@
       <if test="record.week != null" >
         week = #{record.week,jdbcType=LONGVARCHAR},
       </if>
-      <if test="record.sharecode != null" >
-        shareCode = #{record.sharecode,jdbcType=LONGVARCHAR},
-      </if>
       <if test="record.city != null" >
         city = #{record.city,jdbcType=LONGVARCHAR},
       </if>
@@ -282,7 +270,6 @@
       teacher = #{record.teacher,jdbcType=LONGVARCHAR},
       weekString = #{record.weekstring,jdbcType=LONGVARCHAR},
       week = #{record.week,jdbcType=LONGVARCHAR},
-      shareCode = #{record.sharecode,jdbcType=LONGVARCHAR},
       city = #{record.city,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -329,9 +316,6 @@
       <if test="week != null" >
         week = #{week,jdbcType=LONGVARCHAR},
       </if>
-      <if test="sharecode != null" >
-        shareCode = #{sharecode,jdbcType=LONGVARCHAR},
-      </if>
       <if test="city != null" >
         city = #{city,jdbcType=LONGVARCHAR},
       </if>
@@ -349,7 +333,6 @@
       teacher = #{teacher,jdbcType=LONGVARCHAR},
       weekString = #{weekstring,jdbcType=LONGVARCHAR},
       week = #{week,jdbcType=LONGVARCHAR},
-      shareCode = #{sharecode,jdbcType=LONGVARCHAR},
       city = #{city,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

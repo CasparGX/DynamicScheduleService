@@ -11,8 +11,6 @@ public class CourseWithBLOBs extends Course {
 
     private String week;
 
-    private String sharecode;
-
     private String city;
 
     public String getCourse() {
@@ -53,14 +51,6 @@ public class CourseWithBLOBs extends Course {
 
     public void setWeek(String week) {
         this.week = week == null ? null : week.trim();
-    }
-
-    public String getSharecode() {
-        return sharecode;
-    }
-
-    public void setSharecode(String sharecode) {
-        this.sharecode = sharecode == null ? null : sharecode.trim();
     }
 
     public String getCity() {

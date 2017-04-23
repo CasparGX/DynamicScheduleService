@@ -7,13 +7,19 @@ import com.alibaba.fastjson.JSONObject;
  */
 public class Result {
     public String msg;
-    public String code;
+    public int code;
     public Object data;
 
     public Result success(Object data) {
         this.msg = "OK";
-        this.code = "200";
+        this.code = 200;
         this.data = data!=null? data : new JSONObject();
+        return this;
+    }
+    public Result error(int code, String msg) {
+        this.msg = msg;
+        this.code = code;
+        this.data = new JSONObject();
         return this;
     }
 }

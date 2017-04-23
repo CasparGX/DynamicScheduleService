@@ -10,7 +10,6 @@ CREATE TABLE `course` (
   `sectionStart` int(2) NOT NULL COMMENT '开始上课节数',
   `sectionEnd` int(2) NOT NULL COMMENT '结束上课节数',
   `week` text NOT NULL COMMENT '上课周',
-  `shareCode` text NOT NULL COMMENT '分享码',
   `city` text NOT NULL COMMENT '定位城市',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
