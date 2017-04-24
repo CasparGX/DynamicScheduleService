@@ -1,7 +1,6 @@
 package ssm.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import ssm.dao.UserMapper;
 import ssm.model.User;
@@ -30,6 +29,12 @@ public class UserServiceImpl implements UserService {
 
     public User findUserById(Integer id) {
         return userMapper.selectByPrimaryKey(id);
+    }
+
+    public List<User> findUserByUsername(String username) {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andUsernameEqualTo(username);
+        return userMapper.selectByExample(userExample);
     }
 
     public List<User> findAllUsers() {

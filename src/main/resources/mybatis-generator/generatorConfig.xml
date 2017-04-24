@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry location="/Users/Caspar/IdeaProjects/DynamicSchedule/src/main/resources/mysql-connector-java-5.1.41-bin.jar"/>
+    <classPathEntry location="E:\JetBrains\IDEA Project\DynamicScheduleService\src\main\resources\mysql-connector-java-5.1.41-bin.jar"/>
     <context id="testTables" targetRuntime="MyBatis3" >
         <commentGenerator>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->

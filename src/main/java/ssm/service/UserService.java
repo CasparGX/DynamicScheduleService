@@ -15,6 +15,8 @@ public interface UserService {
 
     User findUserById(Integer id);
 
+    List<User> findUserByUsername(String username);
+
     List<User> findAllUsers();
 
     void updateUser(User user);
