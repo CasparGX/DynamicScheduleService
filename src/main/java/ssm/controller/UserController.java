@@ -54,7 +54,9 @@ public class UserController {
             user1.setPassword(password);
             user1.setNickname("");
             int id = userService.insertUser(user1);
-            user1.setId(id);
+            if (id==0) {
+                throw new Exception();
+            }
             logger.info(user1+"");
             return result.success(user1);
         } catch (Exception e) {

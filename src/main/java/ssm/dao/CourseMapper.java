@@ -4,7 +4,6 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import ssm.model.Course;
 import ssm.model.CourseExample;
-import ssm.model.CourseWithBLOBs;
 
 public interface CourseMapper {
     int countByExample(CourseExample example);
@@ -13,25 +12,19 @@ public interface CourseMapper {
 
     int deleteByPrimaryKey(Integer id);
 
-    int insert(CourseWithBLOBs record);
+    int insert(Course record);
 
-    int insertSelective(CourseWithBLOBs record);
-
-    List<CourseWithBLOBs> selectByExampleWithBLOBs(CourseExample example);
+    int insertSelective(Course record);
 
     List<Course> selectByExample(CourseExample example);
 
-    CourseWithBLOBs selectByPrimaryKey(Integer id);
+    Course selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") CourseWithBLOBs record, @Param("example") CourseExample example);
-
-    int updateByExampleWithBLOBs(@Param("record") CourseWithBLOBs record, @Param("example") CourseExample example);
+    int updateByExampleSelective(@Param("record") Course record, @Param("example") CourseExample example);
 
     int updateByExample(@Param("record") Course record, @Param("example") CourseExample example);
 
-    int updateByPrimaryKeySelective(CourseWithBLOBs record);
-
-    int updateByPrimaryKeyWithBLOBs(CourseWithBLOBs record);
+    int updateByPrimaryKeySelective(Course record);
 
     int updateByPrimaryKey(Course record);
 }
