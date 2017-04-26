@@ -374,313 +374,313 @@ public class CourseExample {
             return (Criteria) this;
         }
 
-        public Criteria andWeekdayIsNull() {
-            addCriterion("weekDay is null");
+        public Criteria andWeekDayIsNull() {
+            addCriterion("week_day is null");
             return (Criteria) this;
         }
 
-        public Criteria andWeekdayIsNotNull() {
-            addCriterion("weekDay is not null");
+        public Criteria andWeekDayIsNotNull() {
+            addCriterion("week_day is not null");
             return (Criteria) this;
         }
 
-        public Criteria andWeekdayEqualTo(Integer value) {
-            addCriterion("weekDay =", value, "weekday");
+        public Criteria andWeekDayEqualTo(Integer value) {
+            addCriterion("week_day =", value, "weekDay");
             return (Criteria) this;
         }
 
-        public Criteria andWeekdayNotEqualTo(Integer value) {
-            addCriterion("weekDay <>", value, "weekday");
+        public Criteria andWeekDayNotEqualTo(Integer value) {
+            addCriterion("week_day <>", value, "weekDay");
             return (Criteria) this;
         }
 
-        public Criteria andWeekdayGreaterThan(Integer value) {
-            addCriterion("weekDay >", value, "weekday");
+        public Criteria andWeekDayGreaterThan(Integer value) {
+            addCriterion("week_day >", value, "weekDay");
             return (Criteria) this;
         }
 
-        public Criteria andWeekdayGreaterThanOrEqualTo(Integer value) {
-            addCriterion("weekDay >=", value, "weekday");
+        public Criteria andWeekDayGreaterThanOrEqualTo(Integer value) {
+            addCriterion("week_day >=", value, "weekDay");
             return (Criteria) this;
         }
 
-        public Criteria andWeekdayLessThan(Integer value) {
-            addCriterion("weekDay <", value, "weekday");
+        public Criteria andWeekDayLessThan(Integer value) {
+            addCriterion("week_day <", value, "weekDay");
             return (Criteria) this;
         }
 
-        public Criteria andWeekdayLessThanOrEqualTo(Integer value) {
-            addCriterion("weekDay <=", value, "weekday");
+        public Criteria andWeekDayLessThanOrEqualTo(Integer value) {
+            addCriterion("week_day <=", value, "weekDay");
             return (Criteria) this;
         }
 
-        public Criteria andWeekdayIn(List<Integer> values) {
-            addCriterion("weekDay in", values, "weekday");
+        public Criteria andWeekDayIn(List<Integer> values) {
+            addCriterion("week_day in", values, "weekDay");
             return (Criteria) this;
         }
 
-        public Criteria andWeekdayNotIn(List<Integer> values) {
-            addCriterion("weekDay not in", values, "weekday");
+        public Criteria andWeekDayNotIn(List<Integer> values) {
+            addCriterion("week_day not in", values, "weekDay");
             return (Criteria) this;
         }
 
-        public Criteria andWeekdayBetween(Integer value1, Integer value2) {
-            addCriterion("weekDay between", value1, value2, "weekday");
+        public Criteria andWeekDayBetween(Integer value1, Integer value2) {
+            addCriterion("week_day between", value1, value2, "weekDay");
             return (Criteria) this;
         }
 
-        public Criteria andWeekdayNotBetween(Integer value1, Integer value2) {
-            addCriterion("weekDay not between", value1, value2, "weekday");
+        public Criteria andWeekDayNotBetween(Integer value1, Integer value2) {
+            addCriterion("week_day not between", value1, value2, "weekDay");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringIsNull() {
-            addCriterion("weekString is null");
+        public Criteria andWeekStringIsNull() {
+            addCriterion("week_string is null");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringIsNotNull() {
-            addCriterion("weekString is not null");
+        public Criteria andWeekStringIsNotNull() {
+            addCriterion("week_string is not null");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringEqualTo(String value) {
-            addCriterion("weekString =", value, "weekstring");
+        public Criteria andWeekStringEqualTo(String value) {
+            addCriterion("week_string =", value, "weekString");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringNotEqualTo(String value) {
-            addCriterion("weekString <>", value, "weekstring");
+        public Criteria andWeekStringNotEqualTo(String value) {
+            addCriterion("week_string <>", value, "weekString");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringGreaterThan(String value) {
-            addCriterion("weekString >", value, "weekstring");
+        public Criteria andWeekStringGreaterThan(String value) {
+            addCriterion("week_string >", value, "weekString");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringGreaterThanOrEqualTo(String value) {
-            addCriterion("weekString >=", value, "weekstring");
+        public Criteria andWeekStringGreaterThanOrEqualTo(String value) {
+            addCriterion("week_string >=", value, "weekString");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringLessThan(String value) {
-            addCriterion("weekString <", value, "weekstring");
+        public Criteria andWeekStringLessThan(String value) {
+            addCriterion("week_string <", value, "weekString");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringLessThanOrEqualTo(String value) {
-            addCriterion("weekString <=", value, "weekstring");
+        public Criteria andWeekStringLessThanOrEqualTo(String value) {
+            addCriterion("week_string <=", value, "weekString");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringLike(String value) {
-            addCriterion("weekString like", value, "weekstring");
+        public Criteria andWeekStringLike(String value) {
+            addCriterion("week_string like", value, "weekString");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringNotLike(String value) {
-            addCriterion("weekString not like", value, "weekstring");
+        public Criteria andWeekStringNotLike(String value) {
+            addCriterion("week_string not like", value, "weekString");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringIn(List<String> values) {
-            addCriterion("weekString in", values, "weekstring");
+        public Criteria andWeekStringIn(List<String> values) {
+            addCriterion("week_string in", values, "weekString");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringNotIn(List<String> values) {
-            addCriterion("weekString not in", values, "weekstring");
+        public Criteria andWeekStringNotIn(List<String> values) {
+            addCriterion("week_string not in", values, "weekString");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringBetween(String value1, String value2) {
-            addCriterion("weekString between", value1, value2, "weekstring");
+        public Criteria andWeekStringBetween(String value1, String value2) {
+            addCriterion("week_string between", value1, value2, "weekString");
             return (Criteria) this;
         }
 
-        public Criteria andWeekstringNotBetween(String value1, String value2) {
-            addCriterion("weekString not between", value1, value2, "weekstring");
+        public Criteria andWeekStringNotBetween(String value1, String value2) {
+            addCriterion("week_string not between", value1, value2, "weekString");
             return (Criteria) this;
         }
 
-        public Criteria andSectionlengthIsNull() {
-            addCriterion("sectionLength is null");
+        public Criteria andSectionLengthIsNull() {
+            addCriterion("section_length is null");
             return (Criteria) this;
         }
 
-        public Criteria andSectionlengthIsNotNull() {
-            addCriterion("sectionLength is not null");
+        public Criteria andSectionLengthIsNotNull() {
+            addCriterion("section_length is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSectionlengthEqualTo(Integer value) {
-            addCriterion("sectionLength =", value, "sectionlength");
+        public Criteria andSectionLengthEqualTo(Integer value) {
+            addCriterion("section_length =", value, "sectionLength");
             return (Criteria) this;
         }
 
-        public Criteria andSectionlengthNotEqualTo(Integer value) {
-            addCriterion("sectionLength <>", value, "sectionlength");
+        public Criteria andSectionLengthNotEqualTo(Integer value) {
+            addCriterion("section_length <>", value, "sectionLength");
             return (Criteria) this;
         }
 
-        public Criteria andSectionlengthGreaterThan(Integer value) {
-            addCriterion("sectionLength >", value, "sectionlength");
+        public Criteria andSectionLengthGreaterThan(Integer value) {
+            addCriterion("section_length >", value, "sectionLength");
             return (Criteria) this;
         }
 
-        public Criteria andSectionlengthGreaterThanOrEqualTo(Integer value) {
-            addCriterion("sectionLength >=", value, "sectionlength");
+        public Criteria andSectionLengthGreaterThanOrEqualTo(Integer value) {
+            addCriterion("section_length >=", value, "sectionLength");
             return (Criteria) this;
         }
 
-        public Criteria andSectionlengthLessThan(Integer value) {
-            addCriterion("sectionLength <", value, "sectionlength");
+        public Criteria andSectionLengthLessThan(Integer value) {
+            addCriterion("section_length <", value, "sectionLength");
             return (Criteria) this;
         }
 
-        public Criteria andSectionlengthLessThanOrEqualTo(Integer value) {
-            addCriterion("sectionLength <=", value, "sectionlength");
+        public Criteria andSectionLengthLessThanOrEqualTo(Integer value) {
+            addCriterion("section_length <=", value, "sectionLength");
             return (Criteria) this;
         }
 
-        public Criteria andSectionlengthIn(List<Integer> values) {
-            addCriterion("sectionLength in", values, "sectionlength");
+        public Criteria andSectionLengthIn(List<Integer> values) {
+            addCriterion("section_length in", values, "sectionLength");
             return (Criteria) this;
         }
 
-        public Criteria andSectionlengthNotIn(List<Integer> values) {
-            addCriterion("sectionLength not in", values, "sectionlength");
+        public Criteria andSectionLengthNotIn(List<Integer> values) {
+            addCriterion("section_length not in", values, "sectionLength");
             return (Criteria) this;
         }
 
-        public Criteria andSectionlengthBetween(Integer value1, Integer value2) {
-            addCriterion("sectionLength between", value1, value2, "sectionlength");
+        public Criteria andSectionLengthBetween(Integer value1, Integer value2) {
+            addCriterion("section_length between", value1, value2, "sectionLength");
             return (Criteria) this;
         }
 
-        public Criteria andSectionlengthNotBetween(Integer value1, Integer value2) {
-            addCriterion("sectionLength not between", value1, value2, "sectionlength");
+        public Criteria andSectionLengthNotBetween(Integer value1, Integer value2) {
+            addCriterion("section_length not between", value1, value2, "sectionLength");
             return (Criteria) this;
         }
 
-        public Criteria andSectionstartIsNull() {
-            addCriterion("sectionStart is null");
+        public Criteria andSectionStartIsNull() {
+            addCriterion("section_start is null");
             return (Criteria) this;
         }
 
-        public Criteria andSectionstartIsNotNull() {
-            addCriterion("sectionStart is not null");
+        public Criteria andSectionStartIsNotNull() {
+            addCriterion("section_start is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSectionstartEqualTo(Integer value) {
-            addCriterion("sectionStart =", value, "sectionstart");
+        public Criteria andSectionStartEqualTo(Integer value) {
+            addCriterion("section_start =", value, "sectionStart");
             return (Criteria) this;
         }
 
-        public Criteria andSectionstartNotEqualTo(Integer value) {
-            addCriterion("sectionStart <>", value, "sectionstart");
+        public Criteria andSectionStartNotEqualTo(Integer value) {
+            addCriterion("section_start <>", value, "sectionStart");
             return (Criteria) this;
         }
 
-        public Criteria andSectionstartGreaterThan(Integer value) {
-            addCriterion("sectionStart >", value, "sectionstart");
+        public Criteria andSectionStartGreaterThan(Integer value) {
+            addCriterion("section_start >", value, "sectionStart");
             return (Criteria) this;
         }
 
-        public Criteria andSectionstartGreaterThanOrEqualTo(Integer value) {
-            addCriterion("sectionStart >=", value, "sectionstart");
+        public Criteria andSectionStartGreaterThanOrEqualTo(Integer value) {
+            addCriterion("section_start >=", value, "sectionStart");
             return (Criteria) this;
         }
 
-        public Criteria andSectionstartLessThan(Integer value) {
-            addCriterion("sectionStart <", value, "sectionstart");
+        public Criteria andSectionStartLessThan(Integer value) {
+            addCriterion("section_start <", value, "sectionStart");
             return (Criteria) this;
         }
 
-        public Criteria andSectionstartLessThanOrEqualTo(Integer value) {
-            addCriterion("sectionStart <=", value, "sectionstart");
+        public Criteria andSectionStartLessThanOrEqualTo(Integer value) {
+            addCriterion("section_start <=", value, "sectionStart");
             return (Criteria) this;
         }
 
-        public Criteria andSectionstartIn(List<Integer> values) {
-            addCriterion("sectionStart in", values, "sectionstart");
+        public Criteria andSectionStartIn(List<Integer> values) {
+            addCriterion("section_start in", values, "sectionStart");
             return (Criteria) this;
         }
 
-        public Criteria andSectionstartNotIn(List<Integer> values) {
-            addCriterion("sectionStart not in", values, "sectionstart");
+        public Criteria andSectionStartNotIn(List<Integer> values) {
+            addCriterion("section_start not in", values, "sectionStart");
             return (Criteria) this;
         }
 
-        public Criteria andSectionstartBetween(Integer value1, Integer value2) {
-            addCriterion("sectionStart between", value1, value2, "sectionstart");
+        public Criteria andSectionStartBetween(Integer value1, Integer value2) {
+            addCriterion("section_start between", value1, value2, "sectionStart");
             return (Criteria) this;
         }
 
-        public Criteria andSectionstartNotBetween(Integer value1, Integer value2) {
-            addCriterion("sectionStart not between", value1, value2, "sectionstart");
+        public Criteria andSectionStartNotBetween(Integer value1, Integer value2) {
+            addCriterion("section_start not between", value1, value2, "sectionStart");
             return (Criteria) this;
         }
 
-        public Criteria andSectionendIsNull() {
-            addCriterion("sectionEnd is null");
+        public Criteria andSectionEndIsNull() {
+            addCriterion("section_end is null");
             return (Criteria) this;
         }
 
-        public Criteria andSectionendIsNotNull() {
-            addCriterion("sectionEnd is not null");
+        public Criteria andSectionEndIsNotNull() {
+            addCriterion("section_end is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSectionendEqualTo(Integer value) {
-            addCriterion("sectionEnd =", value, "sectionend");
+        public Criteria andSectionEndEqualTo(Integer value) {
+            addCriterion("section_end =", value, "sectionEnd");
             return (Criteria) this;
         }
 
-        public Criteria andSectionendNotEqualTo(Integer value) {
-            addCriterion("sectionEnd <>", value, "sectionend");
+        public Criteria andSectionEndNotEqualTo(Integer value) {
+            addCriterion("section_end <>", value, "sectionEnd");
             return (Criteria) this;
         }
 
-        public Criteria andSectionendGreaterThan(Integer value) {
-            addCriterion("sectionEnd >", value, "sectionend");
+        public Criteria andSectionEndGreaterThan(Integer value) {
+            addCriterion("section_end >", value, "sectionEnd");
             return (Criteria) this;
         }
 
-        public Criteria andSectionendGreaterThanOrEqualTo(Integer value) {
-            addCriterion("sectionEnd >=", value, "sectionend");
+        public Criteria andSectionEndGreaterThanOrEqualTo(Integer value) {
+            addCriterion("section_end >=", value, "sectionEnd");
             return (Criteria) this;
         }
 
-        public Criteria andSectionendLessThan(Integer value) {
-            addCriterion("sectionEnd <", value, "sectionend");
+        public Criteria andSectionEndLessThan(Integer value) {
+            addCriterion("section_end <", value, "sectionEnd");
             return (Criteria) this;
         }
 
-        public Criteria andSectionendLessThanOrEqualTo(Integer value) {
-            addCriterion("sectionEnd <=", value, "sectionend");
+        public Criteria andSectionEndLessThanOrEqualTo(Integer value) {
+            addCriterion("section_end <=", value, "sectionEnd");
             return (Criteria) this;
         }
 
-        public Criteria andSectionendIn(List<Integer> values) {
-            addCriterion("sectionEnd in", values, "sectionend");
+        public Criteria andSectionEndIn(List<Integer> values) {
+            addCriterion("section_end in", values, "sectionEnd");
             return (Criteria) this;
         }
 
-        public Criteria andSectionendNotIn(List<Integer> values) {
-            addCriterion("sectionEnd not in", values, "sectionend");
+        public Criteria andSectionEndNotIn(List<Integer> values) {
+            addCriterion("section_end not in", values, "sectionEnd");
             return (Criteria) this;
         }
 
-        public Criteria andSectionendBetween(Integer value1, Integer value2) {
-            addCriterion("sectionEnd between", value1, value2, "sectionend");
+        public Criteria andSectionEndBetween(Integer value1, Integer value2) {
+            addCriterion("section_end between", value1, value2, "sectionEnd");
             return (Criteria) this;
         }
 
-        public Criteria andSectionendNotBetween(Integer value1, Integer value2) {
-            addCriterion("sectionEnd not between", value1, value2, "sectionend");
+        public Criteria andSectionEndNotBetween(Integer value1, Integer value2) {
+            addCriterion("section_end not between", value1, value2, "sectionEnd");
             return (Criteria) this;
         }
 

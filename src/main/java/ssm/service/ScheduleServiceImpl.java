@@ -33,7 +33,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 
     public List<Schedule> findBySharecode(String shareCode) {
         ScheduleExample userExample = new ScheduleExample();
-        userExample.createCriteria().andSharecodeEqualTo(shareCode);
+        userExample.createCriteria().andShareCodeEqualTo(shareCode);
         return scheduleMapper.selectByExample(userExample);
     }
 

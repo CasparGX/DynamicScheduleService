@@ -6,11 +6,11 @@
     <result column="course" property="course" jdbcType="VARCHAR" />
     <result column="location" property="location" jdbcType="VARCHAR" />
     <result column="teacher" property="teacher" jdbcType="VARCHAR" />
-    <result column="weekDay" property="weekday" jdbcType="INTEGER" />
-    <result column="weekString" property="weekstring" jdbcType="VARCHAR" />
-    <result column="sectionLength" property="sectionlength" jdbcType="INTEGER" />
-    <result column="sectionStart" property="sectionstart" jdbcType="INTEGER" />
-    <result column="sectionEnd" property="sectionend" jdbcType="INTEGER" />
+    <result column="week_day" property="weekDay" jdbcType="INTEGER" />
+    <result column="week_string" property="weekString" jdbcType="VARCHAR" />
+    <result column="section_length" property="sectionLength" jdbcType="INTEGER" />
+    <result column="section_start" property="sectionStart" jdbcType="INTEGER" />
+    <result column="section_end" property="sectionEnd" jdbcType="INTEGER" />
     <result column="week" property="week" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -72,8 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, course, location, teacher, weekDay, weekString, sectionLength, sectionStart, 
-    sectionEnd, week
+    id, course, location, teacher, week_day, week_string, section_length, section_start, 
+    section_end, week
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="ssm.model.CourseExample" >
     select
@@ -105,15 +105,18 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="ssm.model.Course" >
+  <insert id="insert" parameterType="ssm.model.Course" useGeneratedKeys="true" keyProperty="id">
     insert into course (id, course, location, 
-      teacher, weekDay, weekString, 
-      sectionLength, sectionStart, sectionEnd, 
+      teacher, week_day, week_string, 
+      section_length, section_start, section_end, 
       week)
     values (#{id,jdbcType=INTEGER}, #{course,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, 
-      #{teacher,jdbcType=VARCHAR}, #{weekday,jdbcType=INTEGER}, #{weekstring,jdbcType=VARCHAR}, 
-      #{sectionlength,jdbcType=INTEGER}, #{sectionstart,jdbcType=INTEGER}, #{sectionend,jdbcType=INTEGER}, 
+      #{teacher,jdbcType=VARCHAR}, #{weekDay,jdbcType=INTEGER}, #{weekString,jdbcType=VARCHAR}, 
+      #{sectionLength,jdbcType=INTEGER}, #{sectionStart,jdbcType=INTEGER}, #{sectionEnd,jdbcType=INTEGER}, 
       #{week,jdbcType=VARCHAR})
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+      SELECT LAST_INSERT_ID() AS id
+    </selectKey>
   </insert>
   <insert id="insertSelective" parameterType="ssm.model.Course" >
     insert into course
@@ -130,20 +133,20 @@
       <if test="teacher != null" >
         teacher,
       </if>
-      <if test="weekday != null" >
-        weekDay,
+      <if test="weekDay != null" >
+        week_day,
       </if>
-      <if test="weekstring != null" >
-        weekString,
+      <if test="weekString != null" >
+        week_string,
       </if>
-      <if test="sectionlength != null" >
-        sectionLength,
+      <if test="sectionLength != null" >
+        section_length,
       </if>
-      <if test="sectionstart != null" >
-        sectionStart,
+      <if test="sectionStart != null" >
+        section_start,
       </if>
-      <if test="sectionend != null" >
-        sectionEnd,
+      <if test="sectionEnd != null" >
+        section_end,
       </if>
       <if test="week != null" >
         week,
@@ -162,20 +165,20 @@
       <if test="teacher != null" >
         #{teacher,jdbcType=VARCHAR},
       </if>
-      <if test="weekday != null" >
-        #{weekday,jdbcType=INTEGER},
+      <if test="weekDay != null" >
+        #{weekDay,jdbcType=INTEGER},
       </if>
-      <if test="weekstring != null" >
-        #{weekstring,jdbcType=VARCHAR},
+      <if test="weekString != null" >
+        #{weekString,jdbcType=VARCHAR},
       </if>
-      <if test="sectionlength != null" >
-        #{sectionlength,jdbcType=INTEGER},
+      <if test="sectionLength != null" >
+        #{sectionLength,jdbcType=INTEGER},
       </if>
-      <if test="sectionstart != null" >
-        #{sectionstart,jdbcType=INTEGER},
+      <if test="sectionStart != null" >
+        #{sectionStart,jdbcType=INTEGER},
       </if>
-      <if test="sectionend != null" >
-        #{sectionend,jdbcType=INTEGER},
+      <if test="sectionEnd != null" >
+        #{sectionEnd,jdbcType=INTEGER},
       </if>
       <if test="week != null" >
         #{week,jdbcType=VARCHAR},
@@ -203,20 +206,20 @@
       <if test="record.teacher != null" >
         teacher = #{record.teacher,jdbcType=VARCHAR},
       </if>
-      <if test="record.weekday != null" >
-        weekDay = #{record.weekday,jdbcType=INTEGER},
+      <if test="record.weekDay != null" >
+        week_day = #{record.weekDay,jdbcType=INTEGER},
       </if>
-      <if test="record.weekstring != null" >
-        weekString = #{record.weekstring,jdbcType=VARCHAR},
+      <if test="record.weekString != null" >
+        week_string = #{record.weekString,jdbcType=VARCHAR},
       </if>
-      <if test="record.sectionlength != null" >
-        sectionLength = #{record.sectionlength,jdbcType=INTEGER},
+      <if test="record.sectionLength != null" >
+        section_length = #{record.sectionLength,jdbcType=INTEGER},
       </if>
-      <if test="record.sectionstart != null" >
-        sectionStart = #{record.sectionstart,jdbcType=INTEGER},
+      <if test="record.sectionStart != null" >
+        section_start = #{record.sectionStart,jdbcType=INTEGER},
       </if>
-      <if test="record.sectionend != null" >
-        sectionEnd = #{record.sectionend,jdbcType=INTEGER},
+      <if test="record.sectionEnd != null" >
+        section_end = #{record.sectionEnd,jdbcType=INTEGER},
       </if>
       <if test="record.week != null" >
         week = #{record.week,jdbcType=VARCHAR},
@@ -232,11 +235,11 @@
       course = #{record.course,jdbcType=VARCHAR},
       location = #{record.location,jdbcType=VARCHAR},
       teacher = #{record.teacher,jdbcType=VARCHAR},
-      weekDay = #{record.weekday,jdbcType=INTEGER},
-      weekString = #{record.weekstring,jdbcType=VARCHAR},
-      sectionLength = #{record.sectionlength,jdbcType=INTEGER},
-      sectionStart = #{record.sectionstart,jdbcType=INTEGER},
-      sectionEnd = #{record.sectionend,jdbcType=INTEGER},
+      week_day = #{record.weekDay,jdbcType=INTEGER},
+      week_string = #{record.weekString,jdbcType=VARCHAR},
+      section_length = #{record.sectionLength,jdbcType=INTEGER},
+      section_start = #{record.sectionStart,jdbcType=INTEGER},
+      section_end = #{record.sectionEnd,jdbcType=INTEGER},
       week = #{record.week,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -254,20 +257,20 @@
       <if test="teacher != null" >
         teacher = #{teacher,jdbcType=VARCHAR},
       </if>
-      <if test="weekday != null" >
-        weekDay = #{weekday,jdbcType=INTEGER},
+      <if test="weekDay != null" >
+        week_day = #{weekDay,jdbcType=INTEGER},
       </if>
-      <if test="weekstring != null" >
-        weekString = #{weekstring,jdbcType=VARCHAR},
+      <if test="weekString != null" >
+        week_string = #{weekString,jdbcType=VARCHAR},
       </if>
-      <if test="sectionlength != null" >
-        sectionLength = #{sectionlength,jdbcType=INTEGER},
+      <if test="sectionLength != null" >
+        section_length = #{sectionLength,jdbcType=INTEGER},
       </if>
-      <if test="sectionstart != null" >
-        sectionStart = #{sectionstart,jdbcType=INTEGER},
+      <if test="sectionStart != null" >
+        section_start = #{sectionStart,jdbcType=INTEGER},
       </if>
-      <if test="sectionend != null" >
-        sectionEnd = #{sectionend,jdbcType=INTEGER},
+      <if test="sectionEnd != null" >
+        section_end = #{sectionEnd,jdbcType=INTEGER},
       </if>
       <if test="week != null" >
         week = #{week,jdbcType=VARCHAR},
@@ -280,11 +283,11 @@
     set course = #{course,jdbcType=VARCHAR},
       location = #{location,jdbcType=VARCHAR},
       teacher = #{teacher,jdbcType=VARCHAR},
-      weekDay = #{weekday,jdbcType=INTEGER},
-      weekString = #{weekstring,jdbcType=VARCHAR},
-      sectionLength = #{sectionlength,jdbcType=INTEGER},
-      sectionStart = #{sectionstart,jdbcType=INTEGER},
-      sectionEnd = #{sectionend,jdbcType=INTEGER},
+      week_day = #{weekDay,jdbcType=INTEGER},
+      week_string = #{weekString,jdbcType=VARCHAR},
+      section_length = #{sectionLength,jdbcType=INTEGER},
+      section_start = #{sectionStart,jdbcType=INTEGER},
+      section_end = #{sectionEnd,jdbcType=INTEGER},
       week = #{week,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

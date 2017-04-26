@@ -47,7 +47,7 @@ public class ScheduleController {
         courseList.setId(scheduleList.get(0).getId());
         courseList.setCity(scheduleList.get(0).getCity());
         courseList.setUid(scheduleList.get(0).getUid());
-        courseList.setSharecode(scheduleList.get(0).getSharecode());
+        courseList.setSharecode(scheduleList.get(0).getShareCode());
         List<Course> courses = new ArrayList<Course>();
         for (Schedule item : scheduleList) {
             Course course = courseService.findById(item.getCid());
@@ -60,25 +60,34 @@ public class ScheduleController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
-    public Result insert(String course) {
+    public Result insert(@RequestBody JSONObject course) {
         //String course = request.getParameter("course");
-        JSONObject jsonObject = JSONObject.parseObject(course);
-
-        CourseList schedule = jsonObject.getObject("courseList", CourseList.class);
         Result result = new Result();
-        String shareCode = schedule.getUid()+""+new Date();
-        for (Course item : schedule.getCourseList()) {
-            courseService.insert(item);
-            int id = item.getId();
-            Schedule schedule1 = new Schedule();
-            schedule1.setCid(id);
-            schedule1.setCity(schedule.getCity());
-            schedule1.setSharecode(shareCode);
-            schedule1.setUid(schedule.getUid());
-            scheduledService.insert(schedule1);
+        try {
+//            JSONObject jsonObject = JSONObject.parseObject(course);
+            JSONObject jsonObject = course;
+            jsonObject = jsonObject.getJSONObject("nameValuePairs");
+
+            CourseList schedule = jsonObject.getObject("courseList", CourseList.class);
+//            CourseList schedule = course;
+            String shareCode = schedule.getUid()+""+new Date();
+            for (Course item : schedule.getCourseList()) {
+                courseService.insert(item);
+                int id = item.getId();
+                Schedule schedule1 = new Schedule();
+                schedule1.setCid(id);
+                schedule1.setCity(schedule.getCity());
+                schedule1.setShareCode(shareCode);
+                schedule1.setUid(schedule.getUid());
+                scheduledService.insert(schedule1);
+            }
+            JSONObject data = new JSONObject();
+            data.put("shareCode", shareCode);
+            logger.info(data);
+            return result.success(shareCode);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return result.error(500, e.getMessage());
         }
-        JSONObject data = new JSONObject();
-        data.put("shareCode", shareCode);
-        return result.success(data);
     }
 }

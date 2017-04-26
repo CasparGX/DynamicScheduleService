@@ -9,15 +9,15 @@ public class Course {
 
     private String teacher;
 
-    private Integer weekday;
+    private Integer weekDay;
 
-    private String weekstring;
+    private String weekString;
 
-    private Integer sectionlength;
+    private Integer sectionLength;
 
-    private Integer sectionstart;
+    private Integer sectionStart;
 
-    private Integer sectionend;
+    private Integer sectionEnd;
 
     private String week;
 
@@ -53,44 +53,44 @@ public class Course {
         this.teacher = teacher == null ? null : teacher.trim();
     }
 
-    public Integer getWeekday() {
-        return weekday;
+    public Integer getWeekDay() {
+        return weekDay;
     }
 
-    public void setWeekday(Integer weekday) {
-        this.weekday = weekday;
+    public void setWeekDay(Integer weekDay) {
+        this.weekDay = weekDay;
     }
 
-    public String getWeekstring() {
-        return weekstring;
+    public String getWeekString() {
+        return weekString;
     }
 
-    public void setWeekstring(String weekstring) {
-        this.weekstring = weekstring == null ? null : weekstring.trim();
+    public void setWeekString(String weekString) {
+        this.weekString = weekString == null ? null : weekString.trim();
     }
 
-    public Integer getSectionlength() {
-        return sectionlength;
+    public Integer getSectionLength() {
+        return sectionLength;
     }
 
-    public void setSectionlength(Integer sectionlength) {
-        this.sectionlength = sectionlength;
+    public void setSectionLength(Integer sectionLength) {
+        this.sectionLength = sectionLength;
     }
 
-    public Integer getSectionstart() {
-        return sectionstart;
+    public Integer getSectionStart() {
+        return sectionStart;
     }
 
-    public void setSectionstart(Integer sectionstart) {
-        this.sectionstart = sectionstart;
+    public void setSectionStart(Integer sectionStart) {
+        this.sectionStart = sectionStart;
     }
 
-    public Integer getSectionend() {
-        return sectionend;
+    public Integer getSectionEnd() {
+        return sectionEnd;
     }
 
-    public void setSectionend(Integer sectionend) {
-        this.sectionend = sectionend;
+    public void setSectionEnd(Integer sectionEnd) {
+        this.sectionEnd = sectionEnd;
     }
 
     public String getWeek() {
