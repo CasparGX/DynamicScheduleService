@@ -17,6 +17,7 @@ import ssm.service.ScheduleService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -55,6 +56,33 @@ public class ScheduleController {
         }
         courseList.setCourseList(courses);
         return result.success(courseList);
+    }
+
+    @RequestMapping(value = "/city/{city}", method = RequestMethod.GET)
+    @ResponseBody
+    public Result findByCity(@PathVariable("city") String city) {
+        Result result = new Result();
+        try {
+            city = new String(city.getBytes("iso-8859-1"), "utf-8");
+        } catch (UnsupportedEncodingException e) {
+            return result.error(500, "服务器编码错误");
+        }
+        List<Schedule> scheduleList = scheduledService.findByCity(city);
+        if (scheduleList.size()==0) {
+            return result.error(404, "课表不存在");
+        }
+//        CourseList courseList = new CourseList();
+//        courseList.setId(scheduleList.get(0).getId());
+//        courseList.setCity(scheduleList.get(0).getCity());
+//        courseList.setUid(scheduleList.get(0).getUid());
+//        courseList.setSharecode(scheduleList.get(0).getShareCode());
+//        List<Course> courses = new ArrayList<Course>();
+//        for (Schedule item : scheduleList) {
+//            Course course = courseService.findById(item.getCid());
+//            courses.add(course);
+//        }
+//        courseList.setCourseList(courses);
+        return result.success(scheduleList);
     }
 
 

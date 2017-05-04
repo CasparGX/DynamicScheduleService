@@ -17,6 +17,8 @@ public interface ScheduleService {
 
     List<Schedule> findBySharecode(String sharecode);
 
+    List<Schedule> findByCity(String city);
+
     List<Schedule> findAll();
 
     void update(Schedule user);

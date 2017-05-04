@@ -1,0 +1,14 @@
+<!--课表insert返回id-->
+<insert id="insert" parameterType="ssm.model.Course" useGeneratedKeys="true" keyProperty="id">
+    insert into course (id, course, location,
+    teacher, week_day, week_string,
+    section_length, section_start, section_end,
+    week)
+    values (#{id,jdbcType=INTEGER}, #{course,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR},
+    #{teacher,jdbcType=VARCHAR}, #{weekDay,jdbcType=INTEGER}, #{weekString,jdbcType=VARCHAR},
+    #{sectionLength,jdbcType=INTEGER}, #{sectionStart,jdbcType=INTEGER}, #{sectionEnd,jdbcType=INTEGER},
+    #{week,jdbcType=VARCHAR})
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+        SELECT LAST_INSERT_ID() AS id
+    </selectKey>
+</insert>
