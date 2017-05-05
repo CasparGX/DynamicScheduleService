@@ -12,3 +12,20 @@
         SELECT LAST_INSERT_ID() AS id
     </selectKey>
 </insert>
+
+<!--课表select group by share_code-->
+<select id="selectByExampleGroupByShareCode" resultMap="BaseResultMap" parameterType="ssm.model.ScheduleExample" >
+select
+<if test="distinct" >
+    distinct
+</if>
+<include refid="Base_Column_List" />
+from schedule
+<if test="_parameter != null" >
+    <include refid="Example_Where_Clause" />
+</if>
+group by share_code
+<if test="orderByClause != null" >
+    order by ${orderByClause}
+</if>
+</select>

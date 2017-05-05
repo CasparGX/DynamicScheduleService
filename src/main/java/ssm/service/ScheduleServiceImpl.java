@@ -40,8 +40,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     public List<Schedule> findByCity(String city) {
         ScheduleExample userExample = new ScheduleExample();
         userExample.createCriteria().andCityLike(city);
-        userExample.setOrderByClause("`share_code`");
-        return scheduleMapper.selectByExample(userExample);
+        return scheduleMapper.selectByExampleGroupByShareCode(userExample);
     }
 
     public List<Schedule> findAll() {
